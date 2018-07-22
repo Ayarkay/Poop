@@ -13,7 +13,7 @@ SetWorkingDir %A_ScriptDir%
 
 ; /* UPDATE ************************************************************** */
 
-URLDownloadToFile, https://bitbucket.org/Ayarkay/poop-launcher/raw/master/Poop/Poop.ahk, update.ahk
+URLDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/Poop.ahk, update.txt
 if (ErrorLevel != 0)
 {
   MsgBox, 0, Poop, Error updating. Terminating poop.,
