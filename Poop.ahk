@@ -1,11 +1,11 @@
-﻿; 
-Version = 0.2
+﻿; /*********************************************************************** */
+Version = 0.1
 /*
-We needed more poop.`n`tWay more of it.
+We needed more poop.
 */
 
 
-; /* FLAGS *************************************************************** */
+; /* FLAGS / INIT ******************************************************** */
 
 ; #Warn
 #NoEnv
@@ -33,7 +33,7 @@ else
   msgbox, 1, Poop, A new version has been released! Press OK to apply the update, or Cancel to continue with this version.`n`nReason for update: %updateReason%
   IfMsgBox, OK
   {
-    FileCopy, update.txt, MyScript.ahk, 1
+    FileCopy, update.txt, Poop.ahk, 1
     FileDelete, update.txt
     msgbox, 0, Poop, Poop will now close.  Please restart it to apply the update!
     ExitApp
@@ -46,10 +46,10 @@ else
     return
   }
 }
-*/
-; /* INIT **************************************************************** */
 
+; /* INIT **************************************************************** */
 Updated:
+
 stop = 0
 pause = 0
 
