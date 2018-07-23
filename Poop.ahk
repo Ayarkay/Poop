@@ -20,7 +20,7 @@ whr.Open("GET", "https://raw.githubusercontent.com/Ayarkay/Poop/master/Poop.ahk"
 whr.Send()
 whr.WaitForResponse()
 file := whr.ResponseText
-file := SubStr(file, 1, StrLen(file))
+; file := SubStr(file, 2, StrLen(file)-1)
 FileAppend, %file%, %A_WorkingDir%\update.txt
 
 FileReadLine, updateFileVersion, update.txt, 2
