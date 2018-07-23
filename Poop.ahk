@@ -1,4 +1,5 @@
-﻿; Last updated 22-07-18
+﻿; 
+Version = "0.1"
 /*
 We needed more poop.
 */
@@ -13,33 +14,38 @@ SetWorkingDir %A_ScriptDir%
 
 ; /* UPDATE ************************************************************** */
 
-URLDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/Poop.ahk, update.txt
-if (ErrorLevel != 0)
-{
-  MsgBox, 0, Poop, Error updating. Terminating poop.,
-}
-FileReadLine, update, update.ahk, 1
-if (update = "; Last updated 23-07-18") 
+; HTTP request to get text from repository's script
+whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+whr.Open("GET", "https://raw.githubusercontent.com/Ayarkay/Poop/master/Poop.ahk", true)
+whr.Send()
+whr.WaitForResponse()
+file := whr.ResponseText
+FileAppend, %file%, %A_WorkingDir%\update.txt
+
+
+FileReadLine, updateFileVersion, update.txt, 2
+if (updateFileVersion = "Version = " . Version) 
 {
   FileDelete, update.txt
 } 
 else 
 {
-  FileReadLine, reason, update.ahk, 3
-  msgbox, 0, Poop, A new version of this script has been released!  Please press F6 to update to the latest version, or F4 to continue with this version.`n`nReson for update: %reason%,
+  FileReadLine, updateReason, update.txt, 3
+  msgbox, 0, Poop, A new version of this script has been released!  Please press F6 to update to the latest version, or F4 to continue with this version.`n`nReason for update: %updateReason%,
   F6::
-  FileCopy, update.ahk, MyScript.ahk, 1
-  ;FileDelete, update.ahk
+  FileCopy, update.txt, MyScript.ahk, 1
+  FileDelete, update.txt
   msgbox, The script will now close.  Please restart it to apply the update!
   ExitApp
   return
   F4::
   msgbox, 0, Poop, This script will not be updated!,
-  FileDelete, update.ahk
+  FileDelete, update.txt
+  return
 }
-
+*/
 ; /* INIT **************************************************************** */
-
+Updated:
 stop = 0
 pause = 0
 
