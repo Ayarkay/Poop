@@ -1,5 +1,5 @@
 ﻿; 
-Version = "0.2"
+Version = 0.2
 /*
 We needed more poop.`n`tWay more of it.
 */
