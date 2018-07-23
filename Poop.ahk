@@ -1,7 +1,7 @@
 ﻿; 
-Version = "0.1"
+Version = "0.2"
 /*
-We needed more poop.
+We needed more poop.`n`tWay more of it.
 */
 
 
@@ -22,7 +22,6 @@ whr.WaitForResponse()
 file := whr.ResponseText
 FileAppend, %file%, %A_WorkingDir%\update.txt
 
-
 FileReadLine, updateFileVersion, update.txt, 2
 if (updateFileVersion = "Version = " . Version) 
 {
@@ -30,21 +29,26 @@ if (updateFileVersion = "Version = " . Version)
 } 
 else 
 {
-  FileReadLine, updateReason, update.txt, 3
-  msgbox, 0, Poop, A new version of this script has been released!  Please press F6 to update to the latest version, or F4 to continue with this version.`n`nReason for update: %updateReason%,
-  F6::
-  FileCopy, update.txt, MyScript.ahk, 1
-  FileDelete, update.txt
-  msgbox, The script will now close.  Please restart it to apply the update!
-  ExitApp
-  return
-  F4::
-  msgbox, 0, Poop, This script will not be updated!,
-  FileDelete, update.txt
-  return
+  FileReadLine, updateReason, update.txt, 4
+  msgbox, 1, Poop, A new version has been released! Press OK to apply the update, or Cancel to continue with this version.`n`nReason for update: %updateReason%
+  IfMsgBox, OK
+  {
+    FileCopy, update.txt, MyScript.ahk, 1
+    FileDelete, update.txt
+    msgbox, 0, Poop, Poop will now close.  Please restart it to apply the update!
+    ExitApp
+    return
+  }
+  IfMsgBox, Cancel
+  {
+    FileDelete, update.txt
+    GoTo, Updated
+    return
+  }
 }
 */
 ; /* INIT **************************************************************** */
+
 Updated:
 stop = 0
 pause = 0
