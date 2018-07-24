@@ -1,7 +1,7 @@
 ; /*********************************************************************** */
-Version = 0.12
+Version = 0.13
 /*
-Fixed problem with menu actions.
+Fixing problem with pause.
 */
 
 
@@ -119,6 +119,7 @@ return
 
 ^p::	; Pause key-command
   Pause
+  return
 
 ^h::	; Help key-command
   MsgBox, 0, Poop Info, Version:`t`t%Version%`nCTRL+H:`t`tHelp`nCTRL+P:`t`tPause`nCTRL+Q:`t`tQuit
