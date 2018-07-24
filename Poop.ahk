@@ -61,7 +61,7 @@ MsgBox, 0, Poop, Launching poop.,
 Loop {
   IfWinActive, Fortnite
   {
-    ImageSearch, X, Y, 1482, 900, 1882, 996, MENU.png
+    ImageSearch, X, Y, 1482, 900, 1582, 996, MENU.png
     if (ErrorLevel != 1 && ErrorLevel !=2)
     {
       MouseMove, 1682, 948, 65
