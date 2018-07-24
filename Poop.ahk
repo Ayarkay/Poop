@@ -1,5 +1,5 @@
 ; /*********************************************************************** */
-Version = 0.11
+Version = 0.12
 /*
 Fixed problem with menu actions.
 */
@@ -43,13 +43,27 @@ else
   IfMsgBox, Cancel
   {
     FileDelete, update.txt
-    GoTo, Updated
+    GoTo, FileCheck
     return
   }
 }
 
+FileCheck:
+IfNotExist, %A_WorkingDir%\ALMOSTREADY.png
+  UrlDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/ALMOSTREADY.png, ALMOSTREADY.png
+IfNotExist, %A_WorkingDir%\GOVER.png
+  UrlDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/GOVER.png, GOVER.png
+IfNotExist, %A_WorkingDir%\JUMP.png
+  UrlDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/JUMP.png, JUMP.png
+IfNotExist, %A_WorkingDir%\LOADING.png
+  UrlDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/LOADING.png, LOADING.png
+IfNotExist, %A_WorkingDir%\MENU.png
+  UrlDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/MENU.png, MENU.png
+IfNotExist, %A_WorkingDir%\REWARD.png
+  UrlDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/REWARD.png, REWARD.png
+
 ; /* INIT **************************************************************** */
-Updated:
+
 
 MsgBox, 0, Poop, Launching poop.
 
@@ -63,7 +77,7 @@ Loop {
     {
       MouseMove, 1682, 948, 65
       Click
-      Sleep, 5000
+      MouseMove, 1372, 1200, 45
     }
     ImageSearch, X, Y, 525, 883, 567, 903, REWARD.png
     if (ErrorLevel != 1 && ErrorLevel != 2)
@@ -99,7 +113,7 @@ return
 ; /* KEY-COMMANDS **************************************************************** */
 
 ^q::  ;	Exit key-command
-  MsgBox, 0, Poop Info, Terminating poop.
+  MsgBox, 0, Poop, Terminating poop.
   ExitApp
   return
 
@@ -107,5 +121,5 @@ return
   Pause
 
 ^h::	; Help key-command
-  MsgBox, 0, Poop, Version:`t`t%Version%`nCTRL+H:`t`tHelp`nCTRL+P:`t`tPause`nCTRL+Q:`t`tQuit
+  MsgBox, 0, Poop Info, Version:`t`t%Version%`nCTRL+H:`t`tHelp`nCTRL+P:`t`tPause`nCTRL+Q:`t`tQuit
   return
