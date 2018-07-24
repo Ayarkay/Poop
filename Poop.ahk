@@ -5,7 +5,7 @@ We needed more poop.
 */
 
 
-; /* FLAGS / INIT ******************************************************** */
+; /* FLAGS *************************************************************** */
 
 ; #Warn
 #NoEnv
@@ -51,10 +51,7 @@ else
 ; /* INIT **************************************************************** */
 Updated:
 
-stop = 0
-pause = 0
-
-MsgBox, 0, Poop, Launching poop., 
+MsgBox, 0, Poop, Launching poop.
 
 ; /* LOOP **************************************************************** */
 
@@ -95,19 +92,19 @@ Loop {
       Click
     }
   }
-  if stop = 1
-  {
-    MsgBox, 0, Poop, Terminating poop.,
-    ExitApp
-  }
 }
 return
 
 ; /* KEY-COMMANDS **************************************************************** */
 
 ^q::  ;	Exit key-command
-  stop = 1
+  MsgBox, 0, Poop Info, Terminating poop.
+  ExitApp
   return
 
 ^p::	; Pause key-command
   Pause
+
+^h::	; Help key-command
+  MsgBox, 0, Poop, Version:`t`t%Version%`nCTRL+H:`t`tHelp`nCTRL+P:`t`tPause`nCTRL+Q:`t`tQuit
+  return
