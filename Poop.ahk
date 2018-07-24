@@ -1,7 +1,7 @@
 ; /*********************************************************************** */
-Version = 0.1
+Version = 0.11
 /*
-We needed more poop.
+Fixed problem with menu actions.
 */
 
 
@@ -63,6 +63,7 @@ Loop {
     {
       MouseMove, 1682, 948, 65
       Click
+      Sleep, 5000
     }
     ImageSearch, X, Y, 525, 883, 567, 903, REWARD.png
     if (ErrorLevel != 1 && ErrorLevel != 2)
