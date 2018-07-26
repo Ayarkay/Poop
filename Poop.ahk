@@ -1,7 +1,7 @@
 ; /*********************************************************************** */
-Version = 0.13
+Version = 0.2
 /*
-Fixing problem with pause.
+Big reorganization update.
 */
 
 
@@ -13,7 +13,7 @@ SendMode Event
 SetWorkingDir %A_ScriptDir%
 
 ; /* UPDATE ************************************************************** */
-
+/*
 ; HTTP request to get text from repository's script
 whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
 whr.Open("GET", "https://raw.githubusercontent.com/Ayarkay/Poop/master/Poop.ahk", true)
@@ -61,6 +61,9 @@ IfNotExist, %A_WorkingDir%\MENU.png
   UrlDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/MENU.png, MENU.png
 IfNotExist, %A_WorkingDir%\REWARD.png
   UrlDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/REWARD.png, REWARD.png
+*/
+
+RunWait, %A_WorkingDir%\DataIntegrity.ahk
 
 ; /* INIT **************************************************************** */
 
