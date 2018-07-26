@@ -24,7 +24,7 @@ IfNotExist, %A_WorkingDir%\DataIntegrity.ahk
   FileAppend, %RepoDI%, %A_WorkingDir%\DataIntegrity.ahk
 }
 RunWait, %A_WorkingDir%\DataIntegrity.ahk
-if (ErrorLevel = 1)
+if (ErrorLevel = 1) ; Exit app if update applied
   ExitApp
 MsgBox, 0, Poop, Launching poop.
 
@@ -83,6 +83,13 @@ return
   return
 
 ^h::	; Help key-command
-  FileRead, Version, Version.dat
-  MsgBox, 0, Poop Info, Version:`t`t%Version%`nCTRL+H:`t`tHelp`nCTRL+P:`t`tPause`nCTRL+Q:`t`tQuit
+  FileReadLine, Version, Version.dat, 1
+  ;Gui, Font, S12 CDefault, Verdana
+  Gui, -MinimizeBox -MaximizeBox +ToolWindow
+  Gui, Add, Text, x0 y10 w150 h30 +Center, Version: %Version%
+
+  Gui, Add, Text, x0 y75 w150 h30 +Center, In Development
+  Gui, Add, Button, x5 y200 w69 h25, Cancel
+  Gui, Add, Button, x76 y200 w69 h25, OK
+  Gui, Show, h230 w150, Settings
   return

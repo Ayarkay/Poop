@@ -42,14 +42,11 @@ IfNotExist, %A_WorkingDir%\IMG\NEWS.png
 VersionFile := getHTTP("https://raw.githubusercontent.com/Ayarkay/Poop/master/Version.dat")
 Position := InStr(VersionFile, "`n")
 RepositoryVersion := SubStr(VersionFile, 1, Position-1)
-MsgBox %RepositoryVersion%
 RepositoryReason := SubStr(VersionFile, Position+2, StrLen(VersionFile)-Position-1)
-MsgBox %RepositoryReason%
-
 FileReadLine, LocalVersion, Version.dat, 1
 if (RepositoryVersion != LocalVersion) 
 {
-  msgbox, 1, Poop, A new version has been released! Press OK to apply the update, or Cancel to continue with this version.`n`nReason for update: *to be implemented*
+  msgbox, 1, Poop, A new version has been released! Press OK to apply the update, or Cancel to continue with this version.`n`nVersion: %RepositoryVersion%`nReason for update: %RepositoryReason%
   IfMsgBox, OK
   {
     FileDelete, Poop.ahk
@@ -59,12 +56,11 @@ if (RepositoryVersion != LocalVersion)
     RepositoryDataIntegrity := getHTTP("https://raw.githubusercontent.com/Ayarkay/Poop/master/DataIntegrity.ahk")
     FileAppend, %RepositoryDataIntegrity%, %A_WorkingDir%\DataIntegrity.ahk
     msgbox, 0, Poop, Update applied. Please restart Poop.
-    ExitApp
+    ExitApp, 1
     return
   }
 }
 
+ExitApp, 0
 /* ******************************************************************************************************************* */
-
-ExitApp
 

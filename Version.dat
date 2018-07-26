@@ -1,7 +1,6 @@
-0.1.2
+0.1.3
 
-We needed WAY more poop.
+
 Release notes:
-	- Added self-update functionality
-	- Reorganized file structure
-	- Added data integrity checks
+  - Added GUI for settings page
+  - Added version number to update display message
