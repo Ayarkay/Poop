@@ -48,17 +48,20 @@ if (RepositoryVersion != LocalVersion)
   {
     FileDelete, Poop.ahk
     FileDelete, DataIntegrity.ahk
+    FileDelete, Version.dat
+    FileAppend, %RepositoryVersion%, Version.dat
     RepositoryPoop := getHTTP("https://raw.githubusercontent.com/Ayarkay/Poop/master/Poop.ahk")
     FileAppend, %RepositoryPoop%, %A_WorkingDir%\Poop.ahk
     RepositoryDataIntegrity := getHTTP("https://raw.githubusercontent.com/Ayarkay/Poop/master/DataIntegrity.ahk")
     FileAppend, %RepositoryDataIntegrity%, %A_WorkingDir%\DataIntegrity.ahk
     msgbox, 0, Poop, Update applied. Please restart Poop.
-    ExitApp
+    ExitApp, 1
     return
   }
+  IfMsgBox, Cancel
+    ExitApp, 0
 }
 
 /* ******************************************************************************************************************* */
 
-ExitApp
 

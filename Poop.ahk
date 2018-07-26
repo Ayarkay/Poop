@@ -79,6 +79,8 @@ IfNotExist, %A_WorkingDir%\DataIntegrity.ahk
   FileAppend, %RepoDI%, %A_WorkingDir%\DataIntegrity.ahk
 }
 RunWait, %A_WorkingDir%\DataIntegrity.ahk
+if (ErrorLevel = 1)
+  ExitApp
 
 ; /* INIT **************************************************************** */
 
