@@ -40,11 +40,11 @@ IfNotExist, %A_WorkingDir%\IMG\NEWS.png
 ; /* UPDATE ************************************************************** */
 
 VersionFile := getHTTP("https://raw.githubusercontent.com/Ayarkay/Poop/master/Version.dat")
-VersionText := StrSplit (VersionFile, %)
-RepositoryVersion := VersionText[0]
-RepositoryReason := VersionText[1]
-MsgBox, %RepositoryVersion%
-MsgBox, %RepositoryReason%
+Position := InStr(VersionFile, "`n")
+RepositoryVersion := SubStr(VersionFile, 1, Position-1)
+MsgBox %RepositoryVersion%
+RepositoryReason := SubStr(VersionFile, Position+1, StrLen(VersionFile)-Position-1)
+
 FileReadLine, LocalVersion, Version.dat, 1
 if (RepositoryVersion != LocalVersion) 
 {
