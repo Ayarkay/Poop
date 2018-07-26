@@ -1,9 +1,8 @@
 ; /*********************************************************************** */
-Version = 0.2
+Version = 0.21
 /*
 Big reorganization update.
 */
-
 
 ; /* FLAGS *************************************************************** */
 
@@ -11,6 +10,17 @@ Big reorganization update.
 #NoEnv
 SendMode Event
 SetWorkingDir %A_ScriptDir%
+
+; /* FUNCTIONS*************************************************************** */
+
+getHTTP(website)
+{
+  whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+  whr.Open("GET", website, true)
+  whr.Send()
+  whr.WaitForResponse()
+  return whr.ResponseText
+}
 
 ; /* UPDATE ************************************************************** */
 /*
@@ -63,6 +73,11 @@ IfNotExist, %A_WorkingDir%\REWARD.png
   UrlDownloadToFile, https://raw.githubusercontent.com/Ayarkay/Poop/master/REWARD.png, REWARD.png
 */
 
+IfNotExist, %A_WorkingDir%\DataIntegrity.ahk
+{
+  RepoDI := getHTTP("https://raw.githubusercontent.com/Ayarkay/Poop/master/DataIntegrity.ahk")
+  FileAppend, %RepoDI%, %A_WorkingDir%\DataIntegrity.ahk
+}
 RunWait, %A_WorkingDir%\DataIntegrity.ahk
 
 ; /* INIT **************************************************************** */
