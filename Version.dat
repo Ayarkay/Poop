@@ -1,3 +1,7 @@
 0.1.2
 
 We needed WAY more poop.
+Release notes:
+	- Added self-update functionality
+	- Reorganized file structure
+	- Added data integrity checks

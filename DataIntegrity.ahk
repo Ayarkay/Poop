@@ -43,7 +43,8 @@ VersionFile := getHTTP("https://raw.githubusercontent.com/Ayarkay/Poop/master/Ve
 Position := InStr(VersionFile, "`n")
 RepositoryVersion := SubStr(VersionFile, 1, Position-1)
 MsgBox %RepositoryVersion%
-RepositoryReason := SubStr(VersionFile, Position+1, StrLen(VersionFile)-Position-1)
+RepositoryReason := SubStr(VersionFile, Position+2, StrLen(VersionFile)-Position-1)
+MsgBox %RepositoryReason%
 
 FileReadLine, LocalVersion, Version.dat, 1
 if (RepositoryVersion != LocalVersion) 
