@@ -77,7 +77,7 @@ Loop {
     {
       MouseMove, 1682, 948, 65
       Click
-      MouseMove, 1372, 1200, 45
+      MouseMove, 1372, 500, 45
     }
     ImageSearch, X, Y, 525, 883, 567, 903, REWARD.png
     if (ErrorLevel != 1 && ErrorLevel != 2)
@@ -93,7 +93,7 @@ Loop {
       Send {1}
       Sleep, 10000
     }
-    ImageSearch, X, Y, 1642, 316, 1672, 332, JUMP.png
+    ImageSearch, X, Y, 1632, 316, 1682, 332, JUMP.png
     if (ErrorLevel != 1 && ErrorLevel !=2)
     {
       Random, SleepTime, 7000, 17000
