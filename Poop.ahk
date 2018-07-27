@@ -73,11 +73,6 @@ return
 
 ; /* KEY-COMMANDS **************************************************************** */
 
-^q::  ;	Exit key-command
-  MsgBox, 0, Poop, Terminating poop.
-  ExitApp
-  return
-
 ^p::	; Pause key-command
   Pause
   return
@@ -89,7 +84,15 @@ return
   Gui, Add, Text, x0 y10 w150 h30 +Center, Version: %Version%
 
   Gui, Add, Text, x0 y75 w150 h30 +Center, In Development
-  Gui, Add, Button, x5 y200 w69 h25, Cancel
+  Gui, Add, Button, x5 y200 w69 h25, Quit
   Gui, Add, Button, x76 y200 w69 h25, OK
   Gui, Show, h230 w150, Settings
   return
+
+ButtonOK:
+Gui, Destroy
+return
+
+ButtonQuit:
+MsgBox, 0, Poop, Terminating poop.
+ExitApp
