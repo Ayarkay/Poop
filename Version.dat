@@ -1,8 +1,7 @@
-0.1.4
+0.1.5
 
 
 Release notes:
-  - Added GUI for settings page
-  - Added version number to update display message
-  - QUIT BUTTON NOW IN SETTINGS PAGE
-  - REMOVED QUIT KEY COMMAND
+  - Removed Quit key-command
+  - Removed Pause key-command
+  - Both now in Settings page
