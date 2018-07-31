@@ -59,6 +59,8 @@ if (RepositoryVersion != LocalVersion)
     ExitApp, 1
     return
   }
+  IfMsgBox, Cancel
+    MsgBox, 0, Poop, Will remain on version %LocalVersion%
 }
 ExitApp, 0
 

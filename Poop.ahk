@@ -65,7 +65,8 @@ Loop {
     if (ErrorLevel != 1 && ErrorLevel != 2)
     {
       Random, SleepTime, 7000, 17000
-      Sleep, SleepTime
+      ;Sleep, SleepTime
+      Sleep, 10000
       Send {Space}
     }
     ImageSearch, X, Y, 1257, 1038, 1277, 1058, %A_WorkingDir%\IMG\GOVER.png
