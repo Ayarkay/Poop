@@ -1,7 +1,8 @@
-0.1.5
+0.1.6
 
 
 Release notes:
   - Removed Quit key-command
   - Removed Pause key-command
   - Both now in Settings page
+  - Added news behaviour
