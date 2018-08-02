@@ -72,7 +72,11 @@ Loop {
     ImageSearch, X, Y, 1257, 1038, 1277, 1058, %A_WorkingDir%\IMG\GOVER.png
     if (ErrorLevel != 1 && ErrorLevel != 2)
     {
+      Send, v
+      Sleep, 3000
       MouseMove, 1800, 1050, 65
+      Click
+      Sleep, 1000
       Click
     }
     ImageSearch, X, Y, 525, 883, 567, 903, %A_WorkingDir%\IMG\REWARD.png

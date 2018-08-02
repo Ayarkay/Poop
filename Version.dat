@@ -1,8 +1,12 @@
-0.1.8
+0.1.9
 
 
 Release notes:
+0.1.7
   - Removed Quit key-command
   - Removed Pause key-command
   - Both now in Settings page
+0.1.8
   - Added news behaviour
+0.1.9
+  - Modified game-ending behaviour
